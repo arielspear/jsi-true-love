@@ -1,22 +1,22 @@
-var memoize = function(fn){
-	var cache = {};
-	return function(arg){
-		return cache[arg] || (cache[arg] = fn(arg));
-	};
-};
+// var memoize = function(fn){
+// 	var cache = {};
+// 	return function(arg){
+// 		return cache[arg] || (cache[arg] = fn(arg));
+// 	};
+// };
 
 var once = function(fn){
-	var timesRun;
+	var ranOnce;
 	return function(){
-		if (timesRun !== true){
-			timesRun = true;
+		if (ranOnce !== true){
+			ranOnce = true;
 			fn();
 		}
 	};
 };
 
 var findTrueLove = once(function() {
-  console.log("Looking for true love...");
+  console.log("Found true love...");
 });
 
 
