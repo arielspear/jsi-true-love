@@ -6,11 +6,13 @@ var memoize = function(fn){
 };
 
 var once = function(fn){
-	var timesRun = 0;
-	if (timesRun === 0){
-		timesRun = 1;
-		return (fn);
-	}
+	var timesRun;
+	return function(){
+		if (timesRun !== true){
+			timesRun = true;
+			fn();
+		}
+	};
 };
 
 var findTrueLove = once(function() {
@@ -18,5 +20,11 @@ var findTrueLove = once(function() {
 });
 
 
+findTrueLove();
+findTrueLove();
+findTrueLove();
+findTrueLove();
+findTrueLove();
+findTrueLove();
 findTrueLove();
 findTrueLove();
